@@ -30,6 +30,8 @@ def generate_launch_description():
 
     oakd_sensors = ['oakd', 'oakdlite', 'oakdpro']
 
+
+
     return LaunchDescription([
         DeclareLaunchArgument(
             name='sensor', 
@@ -44,8 +46,18 @@ def generate_launch_description():
             condition=LaunchConfigurationEquals('sensor', 'realsense'),
             launch_arguments={
                 'pointcloud.enable': 'true',
-                'pointcloud.ordered_pc': 'true', 
-                'initial_reset': 'true'
+                'pointcloud.ordered_pc': 'true',
+                'initial_reset': 'true',
+                'depth_fps': '5',
+                'color_fps': '5'
+                # 'enable_rgbd': 'true',
+                # 'align_depth.enable': 'true',
+                # 'enable_sync': 'true',
+                # 'enable_color': 'true',
+                # 'enable_depth': 'true',
+                # 'enable_gyro': 'true',
+                # 'enable_accel': 'true',
+                # 'initial_reset': 'true'
             }.items()   
         ),
 
